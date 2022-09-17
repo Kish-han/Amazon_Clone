@@ -1,10 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
 import { MenuIcon, SearchIcon, ShoppingCartIcon, } from '@heroicons/react/outline'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 const Header = () => {
+
+    const {data:session} = useSession();
+    
+
     return (
-        <header>
+        <header className='sticky top-0 z-50' >
             {/* Top */}
             <div className="flex justify-between items-center bg-amazon_blue p-1 flex-grow py-2">
                 <div className="relative w-32 h-14 mt-2 ml-2 items-center" >
@@ -23,8 +28,10 @@ const Header = () => {
                 </div>
                 {/* Right */}
                 <div className="text-white flex items-center space-x-6 text-xs mx-6 whitespace-nowrap">
-                    <div className="link">
-                        <p>Hello KIshan</p>
+                    <div onClick={!session ? signIn : signOut} className="link">
+                        <p>
+                            {session ? `Hello, ${session.user.name}` : 'Sign In'}
+                        </p>
                         <p className='font-extrabold md:text-sm'>Account & list</p>
                     </div>
                     <div className="link">

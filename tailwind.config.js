@@ -1,5 +1,5 @@
 module.exports = {
-  content: [
+  purge: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
@@ -14,8 +14,8 @@ module.exports = {
       },
     },
   },
-  variants:[ "responsive", "group-hover", "hover", "focus","active"],
-  //   extend: {},
-  // },
+  variants: { 
+    extend: {},
+  },
   plugins: [require("@tailwindcss/line-clamp")],
 };
