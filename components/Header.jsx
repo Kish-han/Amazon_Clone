@@ -2,11 +2,15 @@ import React from 'react'
 import Image from 'next/image'
 import { MenuIcon, SearchIcon, ShoppingCartIcon, } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import {useRouter} from 'next/router'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../src/slices/basketSlice'
 
 const Header = () => {
 
-    const {data:session} = useSession();
-    
+    const { data: session } = useSession();
+    const router = useRouter();
+    const items = useSelector(selectItems);
 
     return (
         <header className='sticky top-0 z-50' >
@@ -14,6 +18,7 @@ const Header = () => {
             <div className="flex justify-between items-center bg-amazon_blue p-1 flex-grow py-2">
                 <div className="relative w-32 h-14 mt-2 ml-2 items-center" >
                     <Image
+                        onClick={()=>router.push('/')}
                         src='https://bit.ly/3LiUpRD'
                         layout='fill'
                         objectFit='contain'
@@ -38,8 +43,8 @@ const Header = () => {
                         <p>Returns</p>
                         <p className='font-extrabold md:text-sm'>& Orders</p>
                     </div>
-                    <div className="link relative flex items-center">
-                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 rounded-full text-black font-semibold' >0</span>
+                    <div onClick={()=> router.push('/checkout')} className="link relative flex items-center">
+                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 rounded-full text-black font-semibold' >{items.length}</span>
                         <ShoppingCartIcon className='h-10'/>
                         <p className='font-extrabold md:text-sm hidden md:inline mt-2'>Basket</p>
                     </div>

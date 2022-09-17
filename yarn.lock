@@ -53,6 +53,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@badrap/bar-of-progress@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@badrap/bar-of-progress/-/bar-of-progress-0.2.1.tgz#68200c7547ecd7f3a3450597c596810a5a06c02c"
+  integrity sha512-+vqWaMkHnCcoKDo0dRhMpY40Lt2+Li2/vo0IArrbYWKTLeHatEGLJRX23iUl6quxwxVqrflJPCr8F0Sak+hujg==
+
 "@firebase/analytics-compat@0.1.13":
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/@firebase/analytics-compat/-/analytics-compat-0.1.13.tgz#61e1d6f9e4d033c3ed9943d91530eb3e0f382f92"
